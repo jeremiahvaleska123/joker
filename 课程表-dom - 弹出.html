@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html >
+<head>
+   
+    <title>Title</title>
+    <style type="text/css">
+     
+	 table,tr,td
+        {
+        border:1px solid blue;
+        }
+        
+     table
+        {
+        width:100%;
+        margin-top: 20px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        margin-left: 20px;
+        }
+
+        tr
+        {
+        height:60px;
+        background-color:rgb(0, 255, 255);
+        color:black;
+        }
+
+        td
+        {
+        padding:20px; 
+        outline:#00ff00 dotted thick;
+        }
+
+		/*td:hover {
+		 position:relative;
+		 top:-2px;
+		 left:2px;
+		 width:200px;
+		 height:300px;
+
+		}*/
+        </style>  
+	</head>
+	<body>
+	<div id="outer">
+ 
+	</div>
+
+    <script type="text/javascript">
+        function test() //定义test函数
+		{
+        var outer = document.getElementById("outer");
+         table = document.createElement("table");//创建表格对象
+         table.setAttribute("width", "300px");//设置表格宽度
+        table.createCaption().innerHTML = "学生课程表";//创建caption并加入内容
+        var row0 = table.insertRow(0);//插入第0行
+        row0.insertCell(0).innerHTML = "周一";
+        row0.insertCell(1).innerHTML = "周二";
+        row0.insertCell(2).innerHTML = "周三";
+		row0.insertCell(3).innerHTML = "周四";
+        row0.insertCell(4).innerHTML = "周五";
+        row0.insertCell(5).innerHTML = "周六";
+		row0.insertCell(6).innerHTML = "周日";
+
+        var row1 = table.insertRow(1);//插入第1行
+        row1.insertCell(0).innerHTML = "web应用技术开发_西区第一公共教学楼C411";
+        row1.insertCell(1).innerHTML = "大学英语四级（A）_西区第一公共教学楼C211";
+        row1.insertCell(2).innerHTML = "管理信息系统_西区第一公共教学楼C105";
+		row1.insertCell(3).innerHTML = "数据库原理及应用_西区第一公共教学楼B405";
+        row1.insertCell(4).innerHTML = "数据库原理及应用_西区第一公共教学楼B405";
+        row1.insertCell(5).innerHTML = "国外美术史东区第二公共教学楼";
+	    row1.insertCell(6).innerHTML = "";
+
+        var row2 = table.insertRow(2);//插入第2行
+        row2.insertCell(0).innerHTML = "毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120";
+        row2.insertCell(1).innerHTML = "管理科学基础_西区第一公共教学楼C411";
+        row2.insertCell(2).innerHTML = "毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120";
+		row2.insertCell(3).innerHTML = "管理科学基础_西区第一公共教学楼C411";
+        row2.insertCell(4).innerHTML = "运营管理_西区第一公共教学楼B405";
+        row2.insertCell(5).innerHTML = "影视鉴赏（尔雅）_西区第一公共教学楼A211";
+		row2.insertCell(6).innerHTML = "";
+
+        var row3 = table.insertRow(3);//插入第3行
+        row3.insertCell(0).innerHTML = "管理信息系统_西区第一公共教学楼C105";
+        row3.insertCell(1).innerHTML = "";
+        row3.insertCell(2).innerHTML = "会计学_西区第一公共教学楼B101";
+		row3.insertCell(3).innerHTML = "体育";
+        row3.insertCell(4).innerHTML = "毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120";
+        row3.insertCell(5).innerHTML = "";
+		row3.insertCell(6).innerHTML = "";
+
+		var row4 = table.insertRow(4);//插入第4行
+        row4.insertCell(0).innerHTML = "电子商务_西区第一公共教学楼B303";
+        row4.insertCell(1).innerHTML = "数据库原理及应用_西区第一公共教学楼C109";
+        row4.insertCell(2).innerHTML = "";
+		row4.insertCell(3).innerHTML = "会计学_西区第一公共教学楼B101";
+        row4.insertCell(4).innerHTML = "";
+        row4.insertCell(5).innerHTML = "";
+		row4.insertCell(6).innerHTML = "";
+
+        outer.appendChild(table);
+
+    }
+
+    test();  //调用test函数
+
+
+
+function show10()   //web应用技术开发---相同课程可以用一个方法
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+		
+    OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	OpenWindow.document.write("<h4>web应用技术开发_西区第一公共教学楼C411</h4>") ;
+    OpenWindow.document.write("上课时间：周一 1-2节  8:20-10:00"+"<br>") ;
+    OpenWindow.document.write("周次：1-17周"+"<br>") ;
+	OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();
+	var year=now.getFullYear();
+    var month=now.getMonth()+1//月份是从0 至11 计算,故+1.
+    var days=now.getDate(); //获取当前日期中的月的天数
+	OpenWindow.document.write("<br>"+ "<br>"+"现在日期:"+year+"年"+month+"月"+days+"日"+"<br>");
+    
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var year2=jieketime.getFullYear();
+    var month2=jieketime.getMonth()+1//月份+1
+    var days2=jieketime.getDate(); //获取当前日期中的月的天数	
+	OpenWindow.document.write( "结课日期:"+year2+"年"+month2+"月"+days2+"日"+"<br>");
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+     
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+	
+function show11()   //大学英语四级（A）
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>大学英语四级（A）_西区第一公共教学楼C211</h4>") ;
+     OpenWindow.document.write("上课时间：周二 1-2节  8:20-10:00"+"<br>") ;
+     OpenWindow.document.write("周次：1-17周"+"<br>") ;
+	 OpenWindow.document.write("任课教师：张蔚"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+  	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show12()   //管理信息系统
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>管理信息系统_西区第一公共教学楼C105</h4>") ;
+     OpenWindow.document.write("上课时间：周三 1-2节  8:20-10:00"+"<br>") ;
+     OpenWindow.document.write("周次：1-15周 单周次"+"<br>") ;
+	 OpenWindow.document.write("任课教师：刘烨"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,2); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+ function show13()   //数据库原理及应用
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>数据库原理及应用_西区第一公共教学楼B405</h4>") ;
+     OpenWindow.document.write("上课时间：周四 1-2节  8:20-10:00"+"<br>") ;
+     OpenWindow.document.write("周次：2-14周 双周次"+"<br>") ;
+	 OpenWindow.document.write("任课教师：吴君"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,4,26); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show14()   //大学英语四级（A）_西区第一公共教学楼C219
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>大学英语四级（A）_西区第一公共教学楼C219</h4>") ;
+     OpenWindow.document.write("上课时间：周五 1-2节  8:20-10:00"+"<br>") ;
+     OpenWindow.document.write("周次：1-17周"+"<br>") ;
+	 OpenWindow.document.write("任课教师：张蔚"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show15()   //国外美术史东区第二公共教学楼
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>国外美术史东区第二公共教学楼</h4>") ;
+     OpenWindow.document.write("上课时间：周六1-2节  8:20-10:00"+"<br>") ;
+     OpenWindow.document.write("周次：1-17周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+  function show20()   //毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120</h4>") ;
+     OpenWindow.document.write("上课时间：周一 3-4  10:20-12:00"+"<br>") ;
+     OpenWindow.document.write("周次：1-16周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,9); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+ function show21()   //管理科学基础_西区第一公共教学楼C411
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>管理科学基础_西区第一公共教学楼C411</h4>") ;
+     OpenWindow.document.write("上课时间：周二 3-4  10:20-12:00"+"<br>") ;
+     OpenWindow.document.write("周次：3-17周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：赵方方"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show22()   //毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120</h4>") ;
+     OpenWindow.document.write("上课时间：周三 3-4  10:20-12:00"+"<br>") ;
+     OpenWindow.document.write("周次：1-16周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,9); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show23()   //管理科学基础_西区第一公共教学楼C411
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>管理科学基础_西区第一公共教学楼C411</h4>") ;
+     OpenWindow.document.write("上课时间：周四 3-4  10:20-12:00"+"<br>") ;
+     OpenWindow.document.write("周次：3-17周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：赵方方"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show24()   //运营管理_西区第一公共教学楼B405
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>管理科学基础_西区第一公共教学楼C411</h4>") ;
+     OpenWindow.document.write("上课时间：周五 3-4  10:20-12:00"+"<br>") ;
+     OpenWindow.document.write("周次：1-15周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：刘亮"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,2); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show25()   //影视鉴赏（尔雅）_西区第一公共教学楼A211
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>影视鉴赏（尔雅）_西区第一公共教学楼A211</h4>") ;
+     OpenWindow.document.write("上课时间：周六 3-4  10:20-12:00"+"<br>") ;
+     OpenWindow.document.write("周次：1-17周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,2); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+
+function show30()   //管理信息系统_西区第一公共教学楼C105
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>管理信息系统_西区第一公共教学楼C105</h4>") ;
+     OpenWindow.document.write("上课时间：周一 5-6  14:00-15:40"+"<br>") ;
+     OpenWindow.document.write("周次：1-15周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,2); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show32()   //会计学_西区第一公共教学楼B101
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>会计学_西区第一公共教学楼B101</h4>") ;
+     OpenWindow.document.write("上课时间：周三 5-6  14:00-15:40"+"<br>") ;
+     OpenWindow.document.write("周次：1-17周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show33()   //体育
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	 OpenWindow.document.write("<h4>体育</h4>") ;
+     OpenWindow.document.write("上课时间：周四 5-6  14:00-15:40"+"<br>") ;
+     OpenWindow.document.write("周次：1-17周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+function show34()   //毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	OpenWindow.document.write("<h4>毛泽东思想与中国特色社会主义理论体系概论_西区第一公共教学楼A120</h4>") ;
+     OpenWindow.document.write("上课时间：周五 5-6  14:00-15:40"+"<br>") ;
+     OpenWindow.document.write("周次：1-16周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,9); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show40()   //电子商务_西区第一公共教学楼B303
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	OpenWindow.document.write("<h4>电子商务_西区第一公共教学楼B303</h4>") ;
+     OpenWindow.document.write("上课时间：周一 7-8  16:00-17:40"+"<br>") ;
+     OpenWindow.document.write("周次：3-17周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：张亮"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+
+function show41()   //数据库原理及应用_西区第一公共教学楼C109
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	OpenWindow.document.write("<h4>数据库原理及应用_西区第一公共教学楼C109</h4>") ;
+     OpenWindow.document.write("上课时间：周二 7-8  16:00-17:40"+"<br>") ;
+     OpenWindow.document.write("周次：1-15周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：吴君"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,2); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+function show43()   //会计学_西区第一公共教学楼B101
+	{OpenWindow=window.open("", "newwin", "height=300,width=350,top=300,left=400,toolbar=no,menubar=no");  
+	 OpenWindow.document.write("<TITLE>详细信息</TITLE>"); 
+	 OpenWindow.document.write("<BODY BGCOLOR=yellow>") ;
+	OpenWindow.document.write("<h4>数据库原理及应用_西区第一公共教学楼C109</h4>") ;
+     OpenWindow.document.write("上课时间：周四 7-8  16:00-17:40"+"<br>") ;
+     OpenWindow.document.write("周次：1-17周 "+"<br>") ;
+	 OpenWindow.document.write("任课教师：某某"+"<br>") ;
+
+	var now=new Date();	 
+    var jieketime=new Date(2019,5,16); //设置结课日期，结课周周日
+    var msel = jieketime-now;	//日期相减，获得相差毫秒数
+	if(msel<0) OpenWindow.document.write("<h4>------已结课！-------</h4>"); 
+  	OpenWindow.document.close()
+	} 
+
+
+document.onclick = function(e)  //用js获取表格当前点击单元格的行号和列号
+{
+	e = window.event || e;
+	e = e.srcElement || e.target;
+	if( e.tagName && e.tagName.toLowerCase() == "td" )
+	//alert("行号：" + e.parentNode.rowIndex + "\n" + "列号：" + e.cellIndex);
+	if(e.parentNode.rowIndex==1)  //行号为1 第一行。 12节
+	{  if(e.cellIndex==0)
+          show10();
+		else if(e.cellIndex==1)
+		  show11();
+		else if(e.cellIndex==2)
+		  show12();
+		else if(e.cellIndex==3)
+		  show13();
+		  else if(e.cellIndex==4)
+		  show14();
+		else if(e.cellIndex==5)
+		  show15();
+
+     }
+
+   if(e.parentNode.rowIndex==2)  //行号为2 第二行。34节
+	{  if(e.cellIndex==0)
+          show20();
+		else if(e.cellIndex==1)
+		  show21();
+		else if(e.cellIndex==2)
+		  show22();
+		else if(e.cellIndex==3)
+		  show23();
+		else if(e.cellIndex==4)
+		  show24();
+		else if(e.cellIndex==5)
+		  show24();
+     }
+
+ if(e.parentNode.rowIndex==3)  //行号为3 第三行。56节
+	{  if(e.cellIndex==0)
+          show30();
+		
+		else if(e.cellIndex==2)
+		  show32();
+		else if(e.cellIndex==3)
+		  show33();
+		else if(e.cellIndex==4)
+		  show34();		
+     }
+	 if(e.parentNode.rowIndex==4)  //行号为4 第四行。78节
+	{  if(e.cellIndex==0)
+          show40();
+		
+		else if(e.cellIndex==1)
+		  show41();
+		else if(e.cellIndex==3)
+		  show43();
+			
+     }
+
+}
+
+
+    </script>
+
+
+</body>
+
+</html>
